@@ -3,7 +3,7 @@ Team: nineteen
 AppName: Scribblchat
 
 Team Overview:
-Caleb Russell - 
+Caleb Russell - Crussell3,
 Raine Troubetaris - GuardKiwi,
 Julia Kazmer - jkazmer,
 Ashwin Randhir - 200tristan
