@@ -19,4 +19,7 @@ ScribbleGram is a revolutionary new way for users to express themselves through 
 - Published images
 - User data
 
+# Rough Wireframe Drawing of Homepage Design
+
+#
 # User Interface
