@@ -35,4 +35,5 @@ ScribbleGram is a revolutionary new way for users to express themselves through 
 
 # Breakdown of the division of labor
 Ashwin Randhir - Wrote markdown, Helped design and revise wireframe, implemented simple login ui using bootstrap template, drew some asset art
+
 Caleb Russell - Created wireframes for front page and canvas, used bootstrap to create front page, helped revise markdown
