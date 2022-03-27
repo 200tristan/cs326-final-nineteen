@@ -31,8 +31,8 @@ ScribbleGram is a revolutionary new way for users to express themselves through 
 ![Front Page](https://github.com/200tristan/cs326-final-nineteen/blob/d01269eff364435fe98f613b5581419ab6bb12f8/src/demoAssets/frontpage.png)
 
 # Canvas
-![Canvas]
+![Canvas](https://github.com/200tristan/cs326-final-nineteen/blob/7753800b1564b099c99f7fad4ba7fc38c4dee11d/src/demoAssets/canvas.png)
 
 # Breakdown of the division of labor
 Ashwin Randhir - Wrote markdown, Helped design and revise wireframe, implemented simple login ui using bootstrap template, drew some asset art
-Caleb Russell - Created wireframes for front page and canvas, used bootstrap to create front page, helped revise markdown 
+Caleb Russell - Created wireframes for front page and canvas, used bootstrap to create front page, helped revise markdown
