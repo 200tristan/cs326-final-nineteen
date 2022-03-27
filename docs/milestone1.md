@@ -21,5 +21,8 @@ ScribbleGram is a revolutionary new way for users to express themselves through 
 
 # Rough Wireframe Drawing of Homepage Design
 ![ScribblGram Feed](https://github.com/200tristan/cs326-final-nineteen/blob/ebf703fd811323e732e2fad7116b5b666dedae17/src/demoAssets/scrib.jpg)
-#
+
 # User Interface
+
+# Login Page
+![Login Page](https://github.com/200tristan/cs326-final-nineteen/blob/ee5fa04f118a5ac0a965d63d9061418baafcae60/src/demoAssets/login.jpg)
