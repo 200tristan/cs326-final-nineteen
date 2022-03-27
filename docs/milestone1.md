@@ -20,6 +20,6 @@ ScribbleGram is a revolutionary new way for users to express themselves through 
 - User data
 
 # Rough Wireframe Drawing of Homepage Design
-![alt text](scrib.jpg)
+![ScribblGram Feed](https://github.com/200tristan/cs326-final-nineteen/blob/ebf703fd811323e732e2fad7116b5b666dedae17/src/demoAssets/scrib.jpg)
 #
 # User Interface
