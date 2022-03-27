@@ -25,4 +25,4 @@ ScribbleGram is a revolutionary new way for users to express themselves through 
 # User Interface
 
 # Login Page
-![Login Page](https://github.com/200tristan/cs326-final-nineteen/blob/ee5fa04f118a5ac0a965d63d9061418baafcae60/src/demoAssets/login.jpg)
+![Login Page](https://github.com/200tristan/cs326-final-nineteen/blob/bc049a5ef61ade93b6d19d87a569ca6236eff3e4/src/demoAssets/login.jpg)
