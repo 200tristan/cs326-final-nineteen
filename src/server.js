@@ -155,43 +155,43 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/client', express.static('client'));
 
 /* USER REQUESTS */
-app.post('user/create', async (request, response) => {
+app.post('/user/create', async (request, response) => {
   const options = request.body;
   createUser(response, options.name, options.password);
 });
 
-app.get('user/read', async (request, response) => {
+app.get('/user/read', async (request, response) => {
   const options = request.body;
   readUser(response, options.name);
 });
 
-app.put('user/update', async (request, response) => {
+app.put('/user/update', async (request, response) => {
   const options = request.body;
   updateUser(response, options.name);
 });
 
-app.delete('user/delete', async (request, response) => {
+app.delete('/user/delete', async (request, response) => {
   const options = request.body;
   deleteUser(response, options.name);
 });
 
 /* IMAGE REQUESTS */
-app.post('image/create', async (request, response) => {
+app.post('/image/create', async (request, response) => {
   const options = request.body;
   createImage(response, options.name, options.image);
 });
 
-app.get('image/read', async (request, response) => {
+app.get('/image/read', async (request, response) => {
   const options = request.body;
   readImage(response, options.id);
 });
 
-app.put('image/update', async (request, response) => {
+app.put('/image/update', async (request, response) => {
   const options = request.body;
   updateImage(response, options.id);
 });
 
-app.delete('image/delete', async (request, response) => {
+app.delete('/image/delete', async (request, response) => {
   const options = request.body;
   deleteImage(response, options.id);
 });

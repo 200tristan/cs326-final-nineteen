@@ -1,19 +1,12 @@
-export async function createCounter(name) {
-  const response = await fetch(`/create`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ name: name }),
-  });
-  const data = await response.json();
-  return data;
-}
 
-export async function readCounter(name) {
-  try {
-    const response = await fetch(`/read?name=${name}`, {
-      method: 'GET',
+export async function createUser(name, password) {
+  try{
+    const response = await fetch(`/user/create`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: name, password: password}),
     });
     const data = await response.json();
     return data;
@@ -22,9 +15,25 @@ export async function readCounter(name) {
   }
 }
 
-export async function updateCounter(name) {
+export async function readUser(name) {
   try {
-    const response = await fetch(`/update`, {
+    const response = await fetch(`/user/read`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: name }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function updateUser(name) {
+  try {
+    const response = await fetch(`/user/update`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -38,9 +47,9 @@ export async function updateCounter(name) {
   }
 }
 
-export async function deleteCounter(name) {
+export async function deleteUser(name) {
   try {
-    const response = await fetch(`/delete`, {
+    const response = await fetch(`/user/delete`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -54,10 +63,66 @@ export async function deleteCounter(name) {
   }
 }
 
-export async function readAllCounters() {
-  const response = await fetch(`/dump`, {
-    method: 'GET',
-  });
-  const data = await response.json();
-  return data;
+export async function createImage(name, image) {
+  try{
+    const response = await fetch(`/image/create`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: name, image: image}),
+    });
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function readImage(id) {
+  try {
+    const response = await fetch(`/image/read`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: id }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function updateImage(id) {
+  try {
+    const response = await fetch(`/image/update`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: id }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function deleteImage(id) {
+  try {
+    const response = await fetch(`/image/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: id }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
 }
