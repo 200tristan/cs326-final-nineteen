@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <style>
-        h1 {text-align: center; display: inline-block;}
-        p {text-align: center;}
-        div {text-align: center;}
-        button {float: right;}
-    </style>
+  <style>
+    h1 {
+      text-align: center;
+      display: inline-block;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    div {
+      text-align: center;
+    }
+
+    button {
+      float: right;
+    }
+  </style>
   <title>Bootstrap Demo ScribblGram</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,48 +27,50 @@
   <script type="module" src="client.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
-
-<div class="m-0 bg-primary d-inline-block"></div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-3">
-      <h1>Scribble Gram</h1>
-    </div>
-    <div class="col-sm-5">
-      <input class="btn btn-primary" type="button" value="Login">
-    </div>
-  </div>
 
   <div class="m-0 bg-primary d-inline-block"></div>
 
   <div class="container">
     <div class="row">
-      <div class="col">
-        <div class="card">
-          <img src="demoAssets\scribblegram2.png" alt="Card image">
-        </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-3">
+        <h1>Scribble Gram</h1>
       </div>
-      <div class="col">
-        <div class="card">
-          <img src="demoAssets\scribblegram3.png" alt="Card image">
-        </div>
+      <div class="col-sm-5">
+        <a href="login.html" class="btn btn-primary" role="button">Login</a>
       </div>
-      <div class="col">
-        <div class="card">
-          <img src="demoAssets\scribblegram4.png" alt="Card image">
+    </div>
+
+    <div class="m-0 bg-primary d-inline-block"></div>
+
+    <div class="container" id="image-grid">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <img src="../demoAssets/scribblegram2.png" alt="Card image">
+          </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="demoAssets\scribblegram5.png" alt="Card image">
+        <div class="col">
+          <div class="card">
+            <img src="../demoAssets/scribblegram3.png" alt="Card image">
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="../demoAssets/scribblegram4.png" alt="Card image">
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="../demoAssets/scribblegram5.png" alt="Card image">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 </body>
+
 </html>

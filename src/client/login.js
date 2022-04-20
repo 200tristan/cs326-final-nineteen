@@ -14,10 +14,12 @@ login.addEventListener("click", () => {
     const user = crud.loginUser(username.value, password.value);
     lsSet("user", user.name);
     console.log("login successful");
+    window.location.href = "index.html";
 });
 
 register.addEventListener("click", () => {
     const user = crud.createUser(username.value, password.value);
     lsSet("user", user.name);
     console.log("created user");
+    window.location.href = "index.html";
 });
