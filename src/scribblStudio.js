@@ -22,6 +22,8 @@ let drawing = false;
 let color = "black";
 let x = y = undefined;
 
+//window.addEventListener('resize, ')
+
 canvas.addEventListener("userDrawing", (e) => {
     drawing = true;
     x = e.offsetX;
