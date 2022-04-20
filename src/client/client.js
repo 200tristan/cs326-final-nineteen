@@ -9,11 +9,6 @@ const deleteButton = document.getElementById('delete');
 const output = document.getElementById('output');
 const all = document.getElementById('all');
 
-async function allCounters() {
-  const json = await crud.readAllCounters();
-  all.innerHTML = JSON.stringify(json);
-}
-
 createButton.addEventListener('click', async (e) => {
   const name = nameText.value;
   const json = await crud.createCounter(name);
