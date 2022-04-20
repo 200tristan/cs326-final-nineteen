@@ -22,7 +22,8 @@ const brushColor = document.getElementById("color");
 //Defaults
 let drawing = false;
 let color = "black";
-let x = y = undefined;
+let x = undefined;
+let y = undefined;
 let size = 5;
 
 //window.addEventListener('resize, ')
