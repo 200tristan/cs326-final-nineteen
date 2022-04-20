@@ -18,11 +18,11 @@ export async function createUser(name, password) {
 export async function loginUser(name, password) {
   try {
     const response = await fetch(`/user/login`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name: name }),
+      body: JSON.stringify({ name: name, password: password}),
     });
     const data = await response.json();
     return data;

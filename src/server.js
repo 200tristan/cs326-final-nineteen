@@ -53,60 +53,64 @@ function getImage(id) {
 async function createUser(response, name, password) {
   if (name === undefined || password === undefined) {
     // 400 - Bad Request
-    response.status(400).json({error: 'Valid username and password is required'});
+    response.status(400).json({status: 'failed', error: 'Valid username and password is required'});
   } else {
     await reload(JSONfile);
     database.totalCreatedUsers += 1;
     database.users.push(new User(database.totalCreatedUsers, name, password));
     await saveDatabase();
-    response.status(200).json({report: "User created"});
+    response.status(200).json({status: "success"});
   }
 }
 
 async function readUser(response, name) {
   await reload(JSONfile);
-  if (u = getUser(name) !== -1) {
-    response.json({user: u});
+  const u = getUser(name);
+  if (u !== -1) {
+    response.json({status: "success", user: u});
   } else {
     // 404 - Not Found
-    response.json({error: `User '${name}' Not Found`});
+    response.json({status: 'failed', error: `User '${name}' Not Found`});
   }
 }
 
 async function loginUser(response, name, password) {
   await reload(JSONfile);
-  if (u = getUser(name) !== -1) {
+  const u = getUser(name);
+  if (u !== -1) {
     if(u.password !== password) {
-      response.json({error: `Incorrect password`});
+      response.json({status: 'failed', error: `Incorrect password`});
     }
     else {
-    response.json({user: u});
+    response.json({status: "success", user: u});
     }
   } else {
     // 404 - Not Found
-    response.json({error: `User '${name}' Not Found`});
+    response.json({status: 'failed', error: `User '${name}' Not Found`});
   }
 }
 
 async function updateUser(response, name) {
-  if (u = getUser(name) !== -1) {
+  const u = getUser(name);
+  if (u !== -1) {
     u.name = name;
-    response.status(200).json({user: u});
+    response.status(200).json({status: "success", user: u});
     await saveDatabase();
   } else {
     // 404 - Not Found
-    response.json({error: `User '${name}' Not Found`});
+    response.json({status: 'failed', error: `User '${name}' Not Found`});
   }
 }
 
 async function deleteUser(response, name) {
-  if (u = getUser(name) !== -1) {
+  const u = getUser(name);
+  if (u !== -1) {
     database.users.splice(database.users.indexOf(u), 1);
-    response.status(200).json({report: "User deleted"});
+    response.status(200).json({status: "success"});
     await saveDatabase();
   } else {
     // 404 - Not Found
-    response.json({error: `User '${name}' Not Found`});
+    response.json({status: 'failed', error: `User '${name}' Not Found`});
   }
 }
 
@@ -114,46 +118,49 @@ async function deleteUser(response, name) {
 async function createImage(response, name, image) {
   if (name === undefined || image === undefined) {
     // 400 - Bad Request
-    response.status(400).json({error: 'Valid username and image is required'});
+    response.status(400).json({status: 'failed', error: 'Valid username and image is required'});
   } else {
     await reload(JSONfile);
     database.totalCreatedImages += 1;
     let u = getUser(name);
     database.images.push(u.createImage(database.totalCreatedImages, image));
     await saveDatabase();
-    response.status(200).json({report: "Image created"});
+    response.status(200).json({status: "success"});
   }
 }
 
 async function readImage(response, id) {
   await reload(JSONfile);
-  if (i = getImage(id) !== -1) {
-    response.json({image: i});
+  const i = getImage(id);
+  if (i !== -1) {
+    response.json({status: "success", image: i});
   } else {
     // 404 - Not Found
-    response.json({error: "Image not found"});
+    response.json({status: 'failed', error: "Image not found"});
   }
 }
 
 async function updateImage(response, id) {
-  if (i = getUser(id) !== -1) {
+  const i = getImage(id);
+  if (i !== -1) {
     // i.id = id;
-    response.status(200).json({image: i});
+    response.status(200).json({status: "success", image: i});
     await saveDatabase();
   } else {
     // 404 - Not Found
-    response.json({error: "Image not found"});
+    response.json({status: 'failed', error: "Image not found"});
   }
 }
 
 async function deleteImage(response, id) {
-  if (i = getImage(id) !== -1) {
+  const i = getImage(id);
+  if (i !== -1) {
     database.images.splice(database.images.indexOf(i), 1);
-    response.status(200).json({report: "Image deleted"});
+    response.status(200).json({status: "success"});
     await saveDatabase();
   } else {
     // 404 - Not Found
-    response.json({error: "Image not found"});
+    response.json({status: 'failed', error: "Image not found"});
   }
 }
 
@@ -180,7 +187,7 @@ app.get('/user/read', async (request, response) => {
   readUser(response, options.name);
 });
 
-app.get('/user/login', async (request, response) => {
+app.post('/user/login', async (request, response) => {
   const options = request.body;
   loginUser(response, options.name, options.password);
 });
