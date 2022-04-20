@@ -1,3 +1,5 @@
+import * as crud from './crud.js';
+
 //Script for drawing on canvas
 //Constants
 

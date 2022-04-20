@@ -73,6 +73,21 @@ async function readUser(response, name) {
   }
 }
 
+async function loginUser(response, name, password) {
+  await reload(JSONfile);
+  if (u = getUser(name) !== -1) {
+    if(u.password !== password) {
+      response.json({error: `Incorrect password`});
+    }
+    else {
+    response.json({user: u});
+    }
+  } else {
+    // 404 - Not Found
+    response.json({error: `User '${name}' Not Found`});
+  }
+}
+
 async function updateUser(response, name) {
   if (u = getUser(name) !== -1) {
     u.name = name;
@@ -163,6 +178,11 @@ app.post('/user/create', async (request, response) => {
 app.get('/user/read', async (request, response) => {
   const options = request.body;
   readUser(response, options.name);
+});
+
+app.get('/user/login', async (request, response) => {
+  const options = request.body;
+  loginUser(response, options.name, options.password);
 });
 
 app.put('/user/update', async (request, response) => {

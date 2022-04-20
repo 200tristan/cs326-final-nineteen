@@ -15,6 +15,22 @@ export async function createUser(name, password) {
   }
 }
 
+export async function loginUser(name, password) {
+  try {
+    const response = await fetch(`/user/login`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: name }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export async function readUser(name) {
   try {
     const response = await fetch(`/user/read`, {
