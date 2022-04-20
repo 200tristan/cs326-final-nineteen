@@ -21,6 +21,7 @@ const brushColor = document.getElementById("color");
 let drawing = false;
 let color = "black";
 let x = y = undefined;
+let size = 5;
 
 //window.addEventListener('resize, ')
 
@@ -35,10 +36,47 @@ canvas.addEventListener("userStoppedDrawing", (e) => {
     x = y = undefined;
 });
 
+//+
+increaseButton.addEventListener("click", () => {
+    size += 1;
+
+    if (size > 10) {
+        size = 10;
+    }
+
+    updateSizeOnScreen();
+});
+
+//-
+decreaseButton.addEventListener("click", () => {
+    size -= 1;
+
+    if (size < 1) {
+        size = 1;
+    }
+
+    updateSizeOnScreen();
+});
+
+//color change
+brushColor.addEventListener("change", (e) => {
+    color = e.target.value;
+});
+
+//cls
+clearButton.addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+function updateSizeOnScreen() {
+    brushSize.innerText = size;
+}
+
 function drawPoint(x, y) {
     ctx.beginPath();
-    ctx.arc(x, y, size, 0, 2 * Math.PI);
+    ctx.arc(x, y, 5 * size, 0, 2 * Math.PI);
     ctx.fillStyle = color;
+    //print
     ctx.fill();
 }
 
@@ -47,7 +85,8 @@ function drawPath(x1, y1, x2, y2) {
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.strokeStyle = color;
-    ctx.lineWidth = size * 2;
+    ctx.lineWidth = size * 5;
     //print
     ctx.stroke();
 }
+
