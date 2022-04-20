@@ -25,15 +25,27 @@ let size = 5;
 
 //window.addEventListener('resize, ')
 
-canvas.addEventListener("userDrawing", (e) => {
+canvas.addEventListener("mousedown", (e) => {
     drawing = true;
     x = e.offsetX;
     y = e.offsetY;
 });
 
-canvas.addEventListener("userStoppedDrawing", (e) => {
+canvas.addEventListener("mouseup", (e) => {
     drawing = false;
     x = y = undefined;
+});
+
+canvas.addEventListener("mousemove", (e) => {
+    if (drawing) {
+        const x2 = e.offsetX;
+        const y2 = e.offsetY;
+
+        drawPoint(x2, y2);
+        drawPath(x, y, x2, y2);
+        x = x2;
+        y = y2;
+    }
 });
 
 //+
