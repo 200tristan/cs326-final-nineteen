@@ -2,7 +2,7 @@
   "name": "scribblgram-final-project",
   "version": "1.0.0",
   "description": "Final Project ",
-  "main": "src/client/index.js",
+  "start": "node src/client/index.js",
   "directories": {
     "doc": "docs"
   },
