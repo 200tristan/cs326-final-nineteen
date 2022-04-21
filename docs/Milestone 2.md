@@ -62,3 +62,5 @@ Heroku Deployment Link: https://scribblgram-final-project.herokuapp.com/
 200tristan(Ashwin Randhir) - Wrote style, gui and script for drawing app using canvas. Pushed project to Heroku and wrote the second half of the markdown file. Small miscellaneous modifications and fixes. 
 
 jkazmer (Julia Kazmer) - Reformatted the bootstrap in index.html. Added index.js and fixed some script dependencies. Added logout and a few other front-end tweaks.
+
+Crussell3 (Caleb Russell) - created server and client CRUD for comunication between server and client. Implemented user login and creation using client CRUD. Small modifications to front-end and fixes across to application.
