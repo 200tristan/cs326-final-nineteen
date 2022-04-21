@@ -38,11 +38,15 @@ Ashwin Randhir - 200tristan
 ## Part 1  **Back-end Skeleton Code**
 
 ## Part 2 **Front-end Implementation**
-![ScribblGram Feed](https://github.com/200tristan/cs326-final-nineteen/blob/main/src/demoAssets/login.jpg)
+
+![ScribblGram Studio](https://github.com/200tristan/cs326-final-nineteen/blob/main/src/demoAssets/canvasRich.jpg)
+Drawing app page allows for creation of in browser drawings using HTML Canvas.
+
+![ScribblGram Login](https://github.com/200tristan/cs326-final-nineteen/blob/main/src/demoAssets/login.jpg)
 
 The login page allows for the same form to be used for login and registration; simply put in a username and password and press register to create an account, do the same to login. 
 
-![ScribblGram Feed](https://github.com/200tristan/cs326-final-nineteen/blob/main/src/demoAssets/ImplementedHomePage(rough).jpg)
+![ScribblGram Homepage](https://github.com/200tristan/cs326-final-nineteen/blob/main/src/demoAssets/ImplementedHomePage(rough).jpg)
 
 The homepage allows for created artwork to be read/displayed. 
 
@@ -50,3 +54,6 @@ We are currently working on the updating and deleting aspects; they will be impl
 
 ## Part 3 Deployment 
 Heroku Deployment Link: https://scribblgram-final-project.herokuapp.com/
+
+##Group Contributions 
+200tristan(Ashwin Randhir) - Wrote style, gui and script for drawing app using canvas. Pushed project to Heroku and wrote the second half of the markdown file. Small miscellaneous modifications and fixes. 
