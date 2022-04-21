@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/200tristan/cs326-final-nineteen/issues"
   },
-  "homepage": "https://github.com/200tristan/cs326-final-nineteen#readme"
+  "homepage": "https://github.com/200tristan/cs326-final-nineteen#readme",
+  "dependencies": {
+    "start": "^5.1.0"
+  }
 }

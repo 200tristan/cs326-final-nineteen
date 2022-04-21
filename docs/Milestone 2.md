@@ -44,7 +44,9 @@ The login page allows for the same form to be used for login and registration; s
 
 ![ScribblGram Feed](https://github.com/200tristan/cs326-final-nineteen/blob/main/src/demoAssets/ImplementedHomePage(rough).jpg)
 
-The homepage allows for created artwork to be read/displayed. 
+The homepage allows for created artwork to be read/displayed. When a user is logged in, the "Login" button is replaced with two other buttons. "Create!" takes the user to the canvas page, and "Logout" logs the user out.
+
+![ScribblGram Feed](https://github.com/200tristan/326-final-nineteen/blob/main/src/demoAssets/homepage-logged-in.PNG)
 
 We are currently working on the updating and deleting aspects; they will be implemented when we get user profile pages working. (delete post, account and update likes and the homepage)
 
