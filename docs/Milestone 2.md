@@ -55,5 +55,6 @@ We are currently working on the updating and deleting aspects; they will be impl
 ## Part 3 Deployment 
 Heroku Deployment Link: https://scribblgram-final-project.herokuapp.com/
 
-##Group Contributions 
+## **Group Contributions** 
+
 200tristan(Ashwin Randhir) - Wrote style, gui and script for drawing app using canvas. Pushed project to Heroku and wrote the second half of the markdown file. Small miscellaneous modifications and fixes. 
