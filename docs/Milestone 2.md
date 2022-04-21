@@ -50,7 +50,7 @@ The login page allows for the same form to be used for login and registration; s
 
 The homepage allows for created artwork to be read/displayed. When a user is logged in, the "Login" button is replaced with two other buttons. "Create!" takes the user to the canvas page, and "Logout" logs the user out.
 
-![ScribblGram Feed](https://github.com/200tristan/326-final-nineteen/blob/main/src/demoAssets/homepage-logged-in.PNG)
+![ScribblGram Homepage Logged In](https://github.com/200tristan/cs326-final-nineteen/blob/main/src/demoAssets/homepage-logged-in.PNG)
 
 We are currently working on the updating and deleting aspects; they will be implemented when we get user profile pages working. (delete post, account and update likes and the homepage)
 
@@ -60,3 +60,5 @@ Heroku Deployment Link: https://scribblgram-final-project.herokuapp.com/
 ## **Group Contributions** 
 
 200tristan(Ashwin Randhir) - Wrote style, gui and script for drawing app using canvas. Pushed project to Heroku and wrote the second half of the markdown file. Small miscellaneous modifications and fixes. 
+
+jkazmer (Julia Kazmer) - Reformatted the bootstrap in index.html. Added index.js and fixed some script dependencies. Added logout and a few other front-end tweaks.
