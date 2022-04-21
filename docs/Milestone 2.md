@@ -39,10 +39,14 @@ Ashwin Randhir - 200tristan
 
 ## Part 2 **Front-end Implementation**
 ![ScribblGram Feed](https://github.com/200tristan/cs326-final-nineteen/blob/main/src/demoAssets/login.jpg)
+
 The login page allows for the same form to be used for login and registration; simply put in a username and password and press register to create an account, do the same to login. 
+
 ![ScribblGram Feed](https://github.com/200tristan/cs326-final-nineteen/blob/main/src/demoAssets/ImplementedHomePage(rough).jpg)
+
 The homepage allows for created artwork to be read/displayed. 
 
 We are currently working on the updating and deleting aspects; they will be implemented when we get user profile pages working. (delete post, account and update likes and the homepage)
+
 ## Part 3 Deployment 
 Heroku Deployment Link: https://scribblgram-final-project.herokuapp.com/
