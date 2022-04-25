@@ -1,23 +1,17 @@
 {
-  "name": "scribblgram-final-project",
+  "name": "src",
   "version": "1.0.0",
-  "description": "Final Project ",
-  "main": "src/client/index.html",
-  "directories": {
-    "doc": "docs"
-  },
+  "description": "",
+  "type": "module",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/200tristan/cs326-final-nineteen.git"
-  },
-  "author": "teamnineteen",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/200tristan/cs326-final-nineteen/issues"
-  },
-  "homepage": "https://github.com/200tristan/cs326-final-nineteen#readme"
+  "dependencies": {
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  }
 }
