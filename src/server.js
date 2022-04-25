@@ -235,4 +235,5 @@ app.get('*', async (request, response) => {
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
+  window.location.href = "src/client/index.html";
 });
