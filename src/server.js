@@ -170,7 +170,7 @@ async function dumpDatabase(response) {
 }
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 8000;
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
