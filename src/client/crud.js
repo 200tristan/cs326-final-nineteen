@@ -1,7 +1,7 @@
 
 export async function createUser(name, password) {
   try{
-    const response = await fetch(`/user/create`, {
+    const response = await fetch(`user/create`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ export async function createUser(name, password) {
 
 export async function loginUser(name, password) {
   try {
-    const response = await fetch(`/user/login`, {
+    const response = await fetch(`user/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ export async function loginUser(name, password) {
 
 export async function readUser(name) {
   try {
-    const response = await fetch(`/user/read`, {
+    const response = await fetch(`user/read`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export async function readUser(name) {
 
 export async function updateUser(name) {
   try {
-    const response = await fetch(`/user/update`, {
+    const response = await fetch(`user/update`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export async function updateUser(name) {
 
 export async function deleteUser(name) {
   try {
-    const response = await fetch(`/user/delete`, {
+    const response = await fetch(`user/delete`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ export async function deleteUser(name) {
 
 export async function createImage(name, image) {
   try{
-    const response = await fetch(`/image/create`, {
+    const response = await fetch(`image/create`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ export async function createImage(name, image) {
 
 export async function readImage(id) {
   try {
-    const response = await fetch(`/image/read`, {
+    const response = await fetch(`image/read`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ export async function readImage(id) {
 
 export async function updateImage(id) {
   try {
-    const response = await fetch(`/image/update`, {
+    const response = await fetch(`image/update`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ export async function updateImage(id) {
 
 export async function deleteImage(id) {
   try {
-    const response = await fetch(`/image/delete`, {
+    const response = await fetch(`image/delete`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

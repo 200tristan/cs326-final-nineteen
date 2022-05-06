@@ -12,24 +12,34 @@ const lsRm = (k) => ls.removeItem(k);
 
 login.addEventListener("click", async () => {
     const u = await crud.loginUser(username.value, password.value);
-    if(u.user.name !== undefined) {
-        lsSet("user", u.user.name);
-        console.log("login successful");
-        window.location.href = "index.html";
+    if(u !== undefined) {
+        if (u.user.name !== undefined) {
+            lsSet("user", u.user.name);
+            console.log("login successful");
+            window.location.href = "index.html";
+        }
+        else {
+            console.log(u.error);
+        }
     }
-    else{
-        console.log(u.error);
+    else {
+        console.log("no user returned from server");
     }
 });
 
 register.addEventListener("click", async () => {
     const u = await crud.createUser(username.value, password.value);
-    if(u.user.name === 'success') {
+    if (u !== undefined) {
+        if (u.status === 'success') {
         lsSet("user", u.user.name);
         console.log("created user successfully");
         window.location.href = "index.html";
+        }
+        else {
+            console.log(u.error);
+        }
     }
     else {
-        console.log(u.error);
+        console.log('no user returned from server');
     }
 });

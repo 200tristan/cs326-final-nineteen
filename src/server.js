@@ -5,18 +5,20 @@ import { User } from './user.js';
 
 import { readFile, writeFile } from 'fs/promises';
 
-const JSONfile = 'database.json';
-let database = reload(JSONfile);
+const JSONfile = 'src/database.json';
+let database = await reload(JSONfile);
 
 async function reload(filename) {
   try {
     const data = await readFile(filename, { encoding: 'utf8' });
-    database = JSON.parse(data);
+    let d = JSON.parse(data);
+    return d;
   } catch (err) {
-    database = {totalCreatedUsers: 0,
+    let d = {totalCreatedUsers: 0,
                 totalCreatedImages: 0,
                 users: [],
                 images: []};
+    return d;
   }
 }
 
