@@ -80,5 +80,5 @@ The homepage allows for created artwork to be read/displayed. When a user is log
 
 We are currently working on the updating and deleting aspects; they will be implemented when we get user profile pages working. (delete post, account and update likes and the homepage)
 
-##Conclusion
+#Conclusion
 Overall it was a good expirence learning advanced features of HTML and JS, our final product was not satisfactory unfortunately. We ended up reaching only about 60% of our intended features, polish and design. We had alot of difficulty with the backend server code and haeroku deployment.  
