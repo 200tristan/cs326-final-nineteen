@@ -43,15 +43,15 @@ Julia Kazmer - jkazmer
 We used Mongodb as our database. The database is supposed store all info on users and images. Users are objects with a userID, name, password, liked images, and created images. The images store an imageId, creator, likes, dislikes, comments, and the image itself. 
 
 ## **URL Routes/Mappings**
-/user/create - create a user
-/user/login - login the user
-/user/read - get the user object from database using userID
-/user/update - update username or password
-/user/delete - delete the user
-/image/create - create an image
-/image/read - get the image object from database with imageID
-/image/update - update likes, or comments
-/image/delete - delete image
+- /user/create - create a user
+- /user/login - login the user
+- /user/read - get the user object from database using userID
+- /user/update - update username or password
+- /user/delete - delete the user
+- /image/create - create an image
+- /image/read - get the image object from database with imageID
+- /image/update - update likes, or comments
+- /image/delete - delete image
 
 ## Deployment 
 Heroku Deployment Link: https://scribblgram-final-project.herokuapp.com/
@@ -80,5 +80,5 @@ The homepage allows for created artwork to be read/displayed. When a user is log
 
 We are currently working on the updating and deleting aspects; they will be implemented when we get user profile pages working. (delete post, account and update likes and the homepage)
 
-#Conclusion
+## Conclusion
 Overall it was a good expirence learning advanced features of HTML and JS, our final product was not satisfactory unfortunately. We ended up reaching only about 60% of our intended features, polish and design. We had alot of difficulty with the backend server code and haeroku deployment.  
