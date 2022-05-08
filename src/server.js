@@ -2,54 +2,39 @@
 import express from 'express';
 import logger from 'morgan';
 import { User } from './user.js';
+import { TotalsDatabase, UserDatabase } from './db.js';
 
 import { readFile, writeFile } from 'fs/promises';
 
-const JSONfile = 'src/database.json';
-let database = await reload(JSONfile);
+// const JSONfile = 'src/database.json';
+const url = "mongodb+srv://teamninteen:oiVMOYGDgB7kVGEO@cluster0.zby95.mongodb.net/scribblegram?retryWrites=true&w=majority"
+let tdb = new TotalsDatabase(url);
+await tdb.connect();
+let udb = new UserDatabase(url);
+await udb.connect();
+// let totals = await reload(JSONfile);
 
-async function reload(filename) {
-  try {
-    const data = await readFile(filename, { encoding: 'utf8' });
-    let d = JSON.parse(data);
-    return d;
-  } catch (err) {
-    let d = {totalCreatedUsers: 0,
-                totalCreatedImages: 0,
-                users: [],
-                images: []};
-    return d;
-  }
-}
+// async function reload(filename) {
+//   try {
+//     const data = await readFile(filename, { encoding: 'utf8' });
+//     let d = JSON.parse(data);
+//     return d;
+//   } catch (err) {
+//     let d = { totalCreatedUsers: 0,
+//               totalCreatedImages: 0,
+//             };
+//     return d;
+//   }
+// }
 
-async function saveDatabase() {
-  try {
-    const data = JSON.stringify(database);
-    await writeFile(JSONfile, data, { encoding: 'utf8' });
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-//return user object if exists else returns -1 
-function getUser(name) {
-  for(const user of database.users) {
-    if(user.name === name) {
-      return user;
-    }
-  }
-  return -1;
-}
-
-//return image object if exists else returns -1 
-function getImage(id) {
-  for(const image of database.images) {
-    if(image.id === id) {
-      return image;
-    }
-  }
-  return -1;
-}
+// async function saveDatabase() {
+//   try {
+//     const data = JSON.stringify(totals);
+//     await writeFile(JSONfile, data, { encoding: 'utf8' });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
 
 /* USER FUNCTIONS */
 async function createUser(response, name, password) {
@@ -57,59 +42,55 @@ async function createUser(response, name, password) {
     // 400 - Bad Request
     response.status(400).json({status: 'failed', error: 'Valid username and password is required'});
   } else {
-    await reload(JSONfile);
-    database.totalCreatedUsers += 1;
-    database.users.push(new User(database.totalCreatedUsers, name, password));
-    await saveDatabase();
-    response.status(200).json({status: "success"});
+    try {
+      let tusers = await tdb.getTotalUsers();
+      await tdb.setTotalUsers(tusers+1);
+      await udb.createUser(new User(tusers, name, password));
+      response.status(200).json({status: "success"});
+    } catch(err) {
+      response.status(400).json({status: 'failed', error: 'user not created'});
+    }
   }
 }
 
-async function readUser(response, name) {
-  await reload(JSONfile);
-  const u = getUser(name);
+async function readUser(response, id) {
+  //await reload(JSONfile);
+  const u = await udb.readUser(id);
   if (u !== -1) {
     response.json({status: "success", user: u});
   } else {
     // 404 - Not Found
-    response.json({status: 'failed', error: `User '${name}' Not Found`});
+    response.json({status: 'failed', error: `User '${id}' Not Found`});
   }
 }
 
 async function loginUser(response, name, password) {
-  await reload(JSONfile);
-  const u = getUser(name);
+  //await reload(JSONfile);
+  const u = await udb.loginUser(name, password);
   if (u !== -1) {
-    if(u.password !== password) {
-      response.json({status: 'failed', error: `Incorrect password`});
-    }
-    else {
     response.json({status: "success", user: u});
-    }
   } else {
     // 404 - Not Found
     response.json({status: 'failed', error: `User '${name}' Not Found`});
   }
 }
 
-async function updateUser(response, name) {
-  const u = getUser(name);
+async function updateUser(response, id, name, password) {
+  const u = await udb.updateUser(id, name, password);
   if (u !== -1) {
-    u.name = name;
-    response.status(200).json({status: "success", user: u});
-    await saveDatabase();
-  } else {
-    // 404 - Not Found
-    response.json({status: 'failed', error: `User '${name}' Not Found`});
-  }
-}
-
-async function deleteUser(response, name) {
-  const u = getUser(name);
-  if (u !== -1) {
-    database.users.splice(database.users.indexOf(u), 1);
     response.status(200).json({status: "success"});
-    await saveDatabase();
+    //await saveDatabase();
+  } else {
+    // 404 - Not Found
+    response.json({status: 'failed', error: `User '${id}' Not Found`});
+  }
+}
+
+async function deleteUser(response, id) {
+  const u = await udb.deleteUser(id);
+  if (u !== -1) {
+    response.status(200).json({status: "success"});
+    //await saveDatabase();
   } else {
     // 404 - Not Found
     response.json({status: 'failed', error: `User '${name}' Not Found`});
@@ -122,17 +103,17 @@ async function createImage(response, name, image) {
     // 400 - Bad Request
     response.status(400).json({status: 'failed', error: 'Valid username and image is required'});
   } else {
-    await reload(JSONfile);
-    database.totalCreatedImages += 1;
+    //await reload(JSONfile);
+    udb.totalCreatedImages += 1;
     let u = getUser(name);
-    database.images.push(u.createImage(database.totalCreatedImages, image));
-    await saveDatabase();
+    udb.images.push(u.createImage(udb.totalCreatedImages, image));
+    //await saveDatabase();
     response.status(200).json({status: "success"});
   }
 }
 
 async function readImage(response, id) {
-  await reload(JSONfile);
+  //await reload(JSONfile);
   const i = getImage(id);
   if (i !== -1) {
     response.json({status: "success", image: i});
@@ -147,7 +128,7 @@ async function updateImage(response, id) {
   if (i !== -1) {
     // i.id = id;
     response.status(200).json({status: "success", image: i});
-    await saveDatabase();
+    //await saveDatabase();
   } else {
     // 404 - Not Found
     response.json({status: 'failed', error: "Image not found"});
@@ -157,9 +138,9 @@ async function updateImage(response, id) {
 async function deleteImage(response, id) {
   const i = getImage(id);
   if (i !== -1) {
-    database.images.splice(database.images.indexOf(i), 1);
+    udb.images.splice(udb.images.indexOf(i), 1);
     response.status(200).json({status: "success"});
-    await saveDatabase();
+    //await saveDatabase();
   } else {
     // 404 - Not Found
     response.json({status: 'failed', error: "Image not found"});
@@ -167,8 +148,8 @@ async function deleteImage(response, id) {
 }
 
 async function dumpDatabase(response) {
-  await reload(JSONfile);
-  response.json(database);
+  //await reload(JSONfile);
+  response.json(udb);
 }
 
 const app = express();
@@ -186,7 +167,7 @@ app.post('/user/create', async (request, response) => {
 
 app.get('/user/read', async (request, response) => {
   const options = request.body;
-  readUser(response, options.name);
+  readUser(response, options.id);
 });
 
 app.post('/user/login', async (request, response) => {
@@ -196,7 +177,7 @@ app.post('/user/login', async (request, response) => {
 
 app.put('/user/update', async (request, response) => {
   const options = request.body;
-  updateUser(response, options.name);
+  updateUser(response, options.id, options.name, options.password);
 });
 
 app.delete('/user/delete', async (request, response) => {

@@ -31,14 +31,14 @@ export async function loginUser(name, password) {
   }
 }
 
-export async function readUser(name) {
+export async function readUser(id) {
   try {
     const response = await fetch(`user/read`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name: name }),
+      body: JSON.stringify({ id: id }),
     });
     const data = await response.json();
     return data;
@@ -47,14 +47,14 @@ export async function readUser(name) {
   }
 }
 
-export async function updateUser(name) {
+export async function updateUser(id, name, password) {
   try {
     const response = await fetch(`user/update`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name: name }),
+      body: JSON.stringify({ id: id, name: name, password: password }),
     });
     const data = await response.json();
     return data;
@@ -63,14 +63,14 @@ export async function updateUser(name) {
   }
 }
 
-export async function deleteUser(name) {
+export async function deleteUser(id) {
   try {
     const response = await fetch(`user/delete`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name: name }),
+      body: JSON.stringify({ id: id }),
     });
     const data = await response.json();
     return data;
