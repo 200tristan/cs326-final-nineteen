@@ -39,9 +39,9 @@ Julia Kazmer - jkazmer
   - Liked Images (put)
   - Unlike (delete)
 
-## Part 1  **Back-end Skeleton Code**
+## Part 1  **Database**
 
-## Part 2 **Front-end Implementation**
+## Part 2 **URL Routes/Mappings**
 
 ![ScribblGram Studio](https://github.com/200tristan/cs326-final-nineteen/blob/main/src/demoAssets/canvasRich.jpg)
 Drawing app page allows for creation of in browser drawings using HTML Canvas.
@@ -63,8 +63,10 @@ Heroku Deployment Link: https://scribblgram-final-project.herokuapp.com/
 
 ## **Group Contributions (Division of Labor)** 
 
-200tristan(Ashwin Randhir) - Wrote style, gui and script for drawing app using canvas. Pushed project to Heroku and wrote the second half of the markdown file. Small miscellaneous modifications and fixes. 
+200tristan(Ashwin Randhir) - Wrote style, gui and script for drawing app using canvas. Pushed project to Heroku and wrote half of the markdown file. Small miscellaneous modifications and fixes. 
+
+Crussell3 (Caleb Russell) - created server and client CRUD for comunication between server and client. Implemented user login and creation using client CRUD. Small modifications to front-end and fixes across to application.
 
 jkazmer (Julia Kazmer) - Reformatted the bootstrap in index.html. Added index.js and fixed some script dependencies. Added logout and a few other front-end tweaks.
 
-Crussell3 (Caleb Russell) - created server and client CRUD for comunication between server and client. Implemented user login and creation using client CRUD. Small modifications to front-end and fixes across to application.
+#Conclusion 
